@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peinture Pro Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .pattern-background {
+            width: 100%;
+            height: 100%;
+            --s: 100px; 
+            --c1: #4a4a4a;
+            --c2: #1b1b3a;
+            --_g: var(--c2) 6% 14%, var(--c1) 16% 24%, var(--c2) 26% 34%,
+                var(--c1) 36% 44%, var(--c2) 46% 54%, var(--c1) 56% 64%, var(--c2) 66% 74%,
+                var(--c1) 76% 84%, var(--c2) 86% 94%;
+            background: 
+                radial-gradient(
+                    100% 100% at 100% 0,
+                    var(--c1) 4%,
+                    var(--_g),
+                    #0008 96%,
+                    #0000
+                ),
+                radial-gradient(
+                    100% 100% at 0 100%,
+                    #0000,
+                    #0008 4%,
+                    var(--_g),
+                    var(--c1) 96%
+                ) var(--c1);
+            background-size: var(--s) var(--s);
+        }
+
+        .nav-button {
+            padding: 8px 16px;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: scale(1.05);
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255,255,255,0.9);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .project-card:hover .project-card-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Barre de navigation avec le motif de fond -->
+    <nav class="pattern-background text-white sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-center space-x-6">
+            <a href="#accueil" class="nav-button">Accueil</a>
+            <a href="#apropos" class="nav-button">À Propos</a>
+            <a href="#realisations" class="nav-button">Réalisations</a>
+            <a href="#localisation" class="nav-button">Localisation</a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- Section Accueil -->
+        <section id="accueil" class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-blue-700">Peinture Pro Services</h1>
+            <p class="text-gray-600 mt-2">Votre partenaire en rénovation et peinture</p>
+        </section>
+
+        <!-- Section À Propos -->
+        <section id="apropos" class="bg-white shadow-lg rounded-lg p-8 mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center text-blue-700">Qui sommes-nous ?</h2>
+            <div class="text-gray-700 text-center">
+                <p class="mb-4">
+                    Peinture Pro Services est une entreprise de peinture passionnée et expérimentée. 
+                    Fondée il y a plus de 10 ans, nous nous spécialisons dans la transformation 
+                    de vos espaces intérieurs et extérieurs avec professionnalisme et créativité.
+                </p>
+                <p class="mb-4">
+                    Notre équipe de peintres qualifiés s'engage à fournir un travail de haute qualité, 
+                    en utilisant les techniques et matériaux les plus modernes pour garantir 
+                    une finition impeccable et durable.
+                </p>
+                <p>
+                    Nous sommes fiers de notre attention aux détails et de notre engagement 
+                    envers la satisfaction totale de nos clients.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section Réalisations avec nouvelles cartes interactives -->
+        <section id="realisations" class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center">Nos Réalisations</h2>
+            <div class="flex space-x-4 overflow-x-auto">
+                <div class="project-card w-full md:w-1/3 h-64 relative">
+                    <div class="w-full h-full" style="background-image: url('./image1.png'); background-size: cover; background-position: center;"></div>
+                    <div class="project-card-overlay">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-blue-700">Rénovation Salon</h3>
+                            <p class="text-gray-700">
+                                Intervention complète : peinture murale, plafond et boiseries.<br>
+                                Surface traitée : 25m²<br>
+                                Durée : 2 jours<br>
+                                Techniques : Peinture mate, finition soignée
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card w-full md:w-1/3 h-64 relative">
+                    <div class="w-full h-full" style="background-image: url('./image2.png'); background-size: cover; background-position: center;"></div>
+                    <div class="project-card-overlay">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-blue-700">Peinture Chambre</h3>
+                            <p class="text-gray-700">
+                                Relooking complet : choix de couleur contemporaine.<br>
+                                Surface traitée : 20m²<br>
+                                Durée : 1 jour<br>
+                                Techniques : Peinture satinée, préparation des murs
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card w-full md:w-1/3 h-64 relative">
+                    <div class="w-full h-full" style="background-image: url('./image3.png'); background-size: cover; background-position: center;"></div>
+                    <div class="project-card-overlay">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-blue-700">Rénovation Extérieure</h3>
+                            <p class="text-gray-700">
+                                Rafraîchissement facade et volets.<br>
+                                Surface traitée : 50m²<br>
+                                Durée : 3 jours<br>
+                                Techniques : Peinture anti-UV, protection renforcée
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Localisation -->
+        <section id="localisation" class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center">Notre Emplacement</h2>
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2893.6801523845914!2d-1.4324005!3d43.6584739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd51457ae5b2d827%3A0x40c21b6ff7fdeb0!2sHossegor%2C%20France!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 mt-8">
+            <p>© 2024 Peinture Pro Services - Tous droits réservés</p>
+            <p>Contactez-nous : 📞 06 84 85 82 49 | ✉️ contact@peintureproservices.com</p>
+            <p>Site conçu par : Ander PICIURA | mail : anderpic@outlook.fr</p>
+        </footer>
+    </div>
+</body>
+</html>
